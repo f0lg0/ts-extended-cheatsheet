@@ -1651,4 +1651,4 @@ import { Request, Response, NextFunction } from 'express';
 
 # Credits
 
-Extended cheatsheet made by Leonardo Folgon and, made by following various resourches on the internet. 
+Extended cheatsheet made by Leonardo Folgon and made by following various resourches on the internet. 
