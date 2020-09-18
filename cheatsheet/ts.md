@@ -29,7 +29,7 @@ Table of Contents
       * [Type Aliases](#type-aliases)
       * [Function Return Types](#function-return-types)
          * [Function as Types](#function-as-types)
-      * [Unknwon Type](#unknwon-type)
+      * [Unknown Type](#unknwon-type)
       * [Never Type](#never-type)
    * [TS Compiler](#ts-compiler)
       * [Command Options](#command-options)
@@ -43,7 +43,7 @@ Table of Contents
          * [Inheritance](#inheritance)
          * [Getters and Setters](#getters-and-setters)
          * [Static Properties and Methods](#static-properties-and-methods)
-         * [Absract Classes](#absract-classes)
+         * [Abstract Classes](#absract-classes)
          * [Private Constructors](#private-constructors)
       * [Interfaces](#interfaces)
          * [Interfaces with Classes](#interfaces-with-classes)
@@ -102,7 +102,7 @@ Table of Contents
 
 TypeScript is a JavaScript superset, which means that it is a language that builds up on JavaScript. It adds **new features and advantages** to JS.
 
-Browsers and Node.js can't execute TypeScript. 
+Browsers and Node.js can't execute TypeScript.
 
 TypeScript is more of a compiler that compiles code to JavaScript, it basically transforms your code into JS.
 
@@ -163,7 +163,7 @@ TypeScript adds:
 * Next-gen JS Features compiled down for older Browsers
 * More features such as Interfaces or Generics
 * Meta-Programming Features like Decorators
-* RIch Configuration Options
+* Rich Configuration Options
 * Modern tooling that helps even non TypeScript Projects (especially in IDEs).
 
 
@@ -210,7 +210,7 @@ const result = add(n1, n2);
 
 ### Type Inference
 
-TypScript is smart enough to recognize some non-explicit variable types such as
+TypeScript is smart enough to recognize some non-explicit variable types such as
 
 ```typescript
 let number1 = 5; // number1: number
@@ -241,7 +241,7 @@ const person = {
 };
 ```
 
-We can't access `person.nickname`. 
+We can't access `person.nickname`.
 
 This is a 'generic' object, in TS we can be more specific:
 
@@ -303,9 +303,9 @@ They assign labels to numbers and are useful for constant identifiers.
 ```typescript
 enum Role { ADMIN, READ_ONLY, AUTHOR };
 
-const person: { 
-    name: string, 
-    age: number, 
+const person: {
+    name: string,
+    age: number,
     role: Role.ADMIN
 } = {
     name: 'Leonardo',
@@ -393,7 +393,7 @@ const temp = () => number;
 
 This can also be useful to specify ``callbacks``.
 
-## Unknwon Type
+## Unknown Type
 
 Unknown is more restrictive than `any`.
 
@@ -463,12 +463,12 @@ And many more.
 class Department {
     // attributes
     name: string;
-    
+
     // constructor
     constructor(n: string) {
         this.name = n;
     }
-    
+
     // methods
     printName(this: Department) { // ts feature to specify that this method should run only on a Department object
         console.log(this.name);
@@ -490,18 +490,18 @@ class Department {
     constructor(n: string) {
         this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
 }
 ```
 
-Properties are now accessble only in the class (not in [child](#Inheritance) classes).
+Properties are now accessible only in the class (not in [child](#Inheritance) classes).
 
 In order to share `private` properties to child classes thru [Inheritance](#Inheritance) use the `protected` keyword.
 
@@ -519,11 +519,11 @@ class Department {
     constructor(n: string) {
         this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -542,11 +542,11 @@ class Department {
     constructor(private name: string, public employees: string[]) {
         // this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -565,11 +565,11 @@ class Department {
     constructor(n: string) {
         this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -590,11 +590,11 @@ class Department {
     constructor(n: string) {
         this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
@@ -619,7 +619,7 @@ In order to access `private` attributes from the outside of a class we can imple
 ```typescript
 class Department {
     private name: string;
-    
+
     constructor(n: string) {
         this.name = n;
     }
@@ -627,11 +627,11 @@ class Department {
     get name(this: Department) {
         return this.name;
     }
-    
+
     set name(value: string) {
         this.name = value;
     }
-   
+
 }
 
 const d = new Department();
@@ -654,7 +654,7 @@ Properties and Methods that we don't access from an instance. An example is `Mat
 ```typescript
 class Department {
     private name: string;
-    
+
     constructor(n: string) {
         this.name = n;
     }
@@ -662,7 +662,7 @@ class Department {
     static createEmployee(name: string) {
         return { name: name };
     }
-   
+
 }
 
 Department.createEmployee('Leo');
@@ -682,15 +682,15 @@ abstract class Department {
     constructor(n: string) {
         this.name = n;
     }
-    
-    printName(this: Department) { 
+
+    printName(this: Department) {
         console.log(this.name);
     }
-    
+
     addEmployee(employee: string) {
         this.employees.push(employee);
     }
-    
+
     // we are just saying that every child must implement this method.
     abstract mandatoryMethod(this: Department): void;
 }
@@ -700,7 +700,7 @@ class ITDepartment extends Department {
         super('IT');
         this.id = id;
     }
-    
+
     mandatoryMethod() {
         // code
     }
@@ -713,7 +713,7 @@ class ITDepartment extends Department {
 
 ### Private Constructors
 
-Singleton Pattern = have only one instance of a class. 
+Singleton Pattern = have only one instance of a class.
 
 With private constructors we can't use `new ClassName()` outside of the class.
 
@@ -721,17 +721,17 @@ With private constructors we can't use `new ClassName()` outside of the class.
 class ITDepartment extends Department {
     // we need to provide an instance otherwise we can't create it with the 'new' keyword
     private static instance: ITDepartment;
-    
+
     private constructor(id: string) {
         super('IT');
         this.id = id;
     }
-    
+
   	static getInstance() {
         if (ITDepartment.instance) {
             return this.instance;
         }
-        
+
         this.instance = new ITDepartment();
     }
 }
@@ -752,7 +752,7 @@ An interfaces describes the structure of an object (not the same thing as a cust
 interface Person {
     name: string;
     age: number;
-    
+
     printName(): void;
 }
 
@@ -776,17 +776,17 @@ We can implement an interface in a class.
 ```typescript
 interface Greetable {
     name: string;
-    
+
     greet(): void;
 }
 
 class Person implements Greetable {
     name: string;
-    
+
     constructor(name: string) {
         this.name = name;
     }
-    
+
     greet() {
         console.log(this.name);
     }
@@ -819,11 +819,11 @@ interface AnotherInterface {
 class Person implements Greetable, AnotherInterface {
     name: string;
     someValue: string;
-    
+
     constructor(name: string) {
         this.name = name;
     }
-    
+
     greet() {
         console.log(this.name);
     }
@@ -903,7 +903,7 @@ function add(a: Combinable, b: Combinable) {
     if (typeof a === 'string' || typeof b === 'string') { // this is a type guard
         return a.toString() + b.toString();
     }
-    
+
     return a + b;
 }
 ```
@@ -958,7 +958,7 @@ function moveAnimal(animal: Animal) {
         case 'horse':
             speed = animal.runningSpeed;
     }
-    
+
     console.log("Moving at speed: ", speed);
 }
 ```
@@ -985,7 +985,7 @@ const inputEl = document.getElementById('user-input')! as HTMLInputElement;
 
 ## Index Properties
 
-We use them to buld flexible interfaces.
+We use them to build flexible interfaces.
 
 ```typescript
 interface ErrorCOntainer { // flexible container
@@ -1009,7 +1009,7 @@ function add(a: Combinable, b: Combinable) {
     if (typeof a === 'string' || typeof b === 'string') { // this is a type guard
         return a.toString() + b.toString();
     }
-    
+
     return a + b;
 }
 ```
@@ -1047,7 +1047,7 @@ If we don't know if a piece of data is `null` we can do:
 ```typescript
 const gotData = null; // data that we don't know if it is NULL
 
-const storedData = gotData || 'Default'; // JS 
+const storedData = gotData || 'Default'; // JS
 const storedData = gotData ?? 'Default'; // TS --> ONLY IF gotData is null or undefined
 ```
 
@@ -1063,9 +1063,9 @@ An array is actually a `generic`.
 
 ``Array<Type>``
 
-A generic type is a type which is kinda connected with some other types and is really flexible in terms of what type the other type is. 
+A generic type is a type which is kinda connected with some other types and is really flexible in terms of what type the other type is.
 
-The `Array` type doesn't really care about what data yuo store in it.
+The `Array` type doesn't really care about what data you store in it.
 
 ```typescript
 const names: Array<string> = []; // same thing as string[]
@@ -1080,12 +1080,12 @@ const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Done');
     }, 1000)
-}); 
+});
 ```
 
 Here the type of the promise is `Promise<unknown>` because it will eventually resolve into something.
 
-So we can say: 
+So we can say:
 
 ```typescript
 const promise: Promise<string> = new Promise((resolve, reject) => {
@@ -1115,7 +1115,7 @@ merged.age; // TS ERROR, typescript doesn't know the properties (we could do TYP
 ```
 
 ```typescript
-function merge<T, U>(objA: T, objB: U) { //T and U are cusotm identifiers 
+function merge<T, U>(objA: T, objB: U) { //T and U are cusotm identifiers
     return Object.assign(objA, objB);
 }
 
@@ -1140,12 +1140,12 @@ const merged = merge<{name: string}, {age: number}>({name: 'Leo'}, {age: 17});
 Sometimes we want to **restrict** the types of generic types.
 
 ```typescript
-function merge<T extends object, U extends object>(objA: T, objB: U) { //T and U are cusotm identifiers 
+function merge<T extends object, U extends object>(objA: T, objB: U) { //T and U are cusotm identifiers
     return Object.assign(objA, objB);
 }
 ```
 
-So we have imporved the merge function by reducing unwanted behaviours such as passing just a number to the `merge` function. 
+So we have improved the merge function by reducing unwanted behaviors such as passing just a number to the `merge` function.
 
 We can also improve this by creating custom `interfaces` and using them with `extends ...` if we only care about certain params properties.
 
@@ -1174,15 +1174,15 @@ function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) 
 ```typescript
 class DataStorage<T extends number | string | boolean> {
     private data: T[] = [];
-    
+
     addItem(item: T) {
         this.data.push(item);
     }
-    
+
     removeItem(item: T) {
         if (this.data.indexOf(item) !== -1) this.data.splice(this.data.indexOf(item), 1);
     }
-    
+
     getItems() {
         return [...this.data];
     }
@@ -1208,11 +1208,11 @@ interface Article {
 
 function createArticle(title: string, description: string): Article {
     const toServe: Partial<Article> = {}; // This is an object that in the **end** will be an Article
-    
+
     // building manually, maybe we have to do some filtering
     toServe.title = title;
     toServe.decription = description;
-    
+
     return toServe as Article;
 }
 ```
@@ -1232,15 +1232,15 @@ const names: Readonly<string[]> = ['Leo', 'Anna'];
 ```typescript
 class DataStorage<T extends number | string | boolean> {
     private data: T[] = [];
-    
+
     addItem(item: T) {
         this.data.push(item);
     }
-    
+
     removeItem(item: T) {
         if (this.data.indexOf(item) !== -1) this.data.splice(this.data.indexOf(item), 1);
     }
-    
+
     getItems() {
         return [...this.data];
     }
@@ -1250,15 +1250,15 @@ class DataStorage<T extends number | string | boolean> {
 ```typescript
 class DataStorage {
     private data: (string | number | boolean)[] = [];
-    
+
     addItem(item: string | number | boolean) {
         this.data.push(item);
     }
-    
+
     removeItem(item: string | number | boolean) {
         if (this.data.indexOf(item) !== -1) this.data.splice(this.data.indexOf(item), 1);
     }
-    
+
     getItems() {
         return [...this.data];
     }
@@ -1267,7 +1267,7 @@ class DataStorage {
 
 In the second example we allow **mixed** types, to fix that we would have to do ``string[] | number[] | boolean[]`` BUT then we would have a problem while adding and removing stuff because with union types we allow some types every time we call that specific action.
 
-So generic types makes us choose a type of data everytime from a range of types, it doesn't accept mixed stuff. 
+So generic types makes us choose a type of data every time from a range of types, it doesn't accept mixed stuff.
 
 In order words generics locks in a specific type.
 
@@ -1298,7 +1298,7 @@ function Logger(constructor: Function) { // decorators expect arguments
 @Logger
 class Person {
     name: 'Leo';
-    
+
     constructor() {
         console.log("Creating person...");
     }
@@ -1324,7 +1324,7 @@ function Logger(logString: string) {
 @Logger('LOGGING-PERSON')
 class Person {
     name: 'Leo';
-    
+
     constructor() {
         console.log("Creating person...");
     }
@@ -1364,11 +1364,11 @@ function Log(target: any, propertyName: string | Symbol) {
 class Product {
     @Log
     title: string;
-    
+
     constructor(t: string) {
         this.title = t;
     }
-   
+
 }
 ```
 
@@ -1385,7 +1385,7 @@ NOTE: this will decorate a class with a ``name`` property
 ```typescript
 function WithTemplate(template: string, hookId: string) {
     return function<T extends {new(...args: any[]): {name: string}}>(original_constructor: T) {
-        return class extends original_constructor { // based on the og constructor 
+        return class extends original_constructor { // based on the og constructor
             // adding new functionalities to the decorated class, this runs when the class is instantiated
             constructor(..._: any[]) {
                 super();
@@ -1405,7 +1405,7 @@ We can also return in method decorators.
 
 
 
-# Modules 
+# Modules
 
 ## Namespaces and File Bundling
 
@@ -1446,7 +1446,7 @@ import defModule from './path/file.js'
 import { module } from './path/another.js'
 ```
 
-As long as we don't use a ``webpack`` make sure to add `.js` even if we are devloping in TypeScript or just omit the extension (this can cause some errors depending on you environment). 
+As long as we don't use a ``webpack`` make sure to add `.js` even if we are developing in TypeScript or just omit the extension (this can cause some errors depending on you environment).
 
 
 
@@ -1526,7 +1526,7 @@ module.exports = {
             }
         ]
     },
-    
+
     resolve: {
         extensions: ['.ts', '.js']
     }
@@ -1553,7 +1553,7 @@ in `package.json`
 "dev" : "webpack-dev-server"
 ```
 
-**In dev mode the bundle is generated in memory only** 
+**In dev mode the bundle is generated in memory only**
 
 So we need to add (in `webpack.config.js`):
 
@@ -1596,12 +1596,12 @@ module.exports = {
             }
         ]
     },
-    
+
     resolve: {
         extensions: ['.ts', '.js']
     },
 	plugins: [
-    	new CleanPlugin.CleanWebpackPlugin()        
+    	new CleanPlugin.CleanWebpackPlugin()
     ]
 };
 ```
@@ -1626,7 +1626,7 @@ What we can do is:
 * tsc --init
 * `target: esnext`
 * `moduleResolution: node`
-* npm i express 
+* npm i express
 * npm i --save-dev nodemon
 * npm i --save-dev @types/node
 * npm i --save-dev @types/express
@@ -1651,4 +1651,4 @@ import { Request, Response, NextFunction } from 'express';
 
 # Credits
 
-Extended cheatsheet made by Leonardo Folgon and made by following various resourches on the internet. 
+Extended cheatsheet made by Leonardo Folgon and made by following various resources on the internet.
