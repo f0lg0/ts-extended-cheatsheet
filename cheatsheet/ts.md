@@ -670,7 +670,7 @@ Department.createEmployee('Leo');
 
 
 
-### Absract Classes
+### Abstract Classes
 
 Back to Inheritance, we can force developers to implement a certain method in a class (especially child ones).
 
