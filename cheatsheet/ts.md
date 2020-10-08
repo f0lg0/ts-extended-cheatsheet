@@ -400,7 +400,7 @@ Unknown is more restrictive than `any`.
 For example we CAN'T do:
 
 ```typescript
-let a: unknwown;
+let a: unknown;
 let b: string;
 
 a = 5;
