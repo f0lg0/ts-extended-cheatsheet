@@ -3,7 +3,7 @@ An extended cheatsheet about TypeScript
 
 ## DISCLAIMER
 
-This is not a full, well curated documentation aboutTypeScript. These are the notes I took following various sources while learning TypeScript. I'm Italian so sorry for the not so perfect English.
+This is not a full, well-curated documentation about TypeScript. These are the notes I took following various sources while learning TypeScript. I'm Italian, so sorry for the not so perfect English.
 
 ## Cheatsheet
 
